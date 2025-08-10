@@ -1,0 +1,59 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start Frontend Dev Server",
+            "type": "shell",
+            "command": "npm",
+            "args": [
+                "start"
+            ],
+            "group": "build",
+            "isBackground": true,
+            "options": {
+                "cwd": "${workspaceFolder}/frontend"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Start Backend Server",
+            "type": "shell",
+            "command": "\"C:\\apache-maven-3.8.8\\bin\\mvn.cmd\"",
+            "args": [
+                "spring-boot:run"
+            ],
+            "group": "build",
+            "isBackground": true,
+            "options": {
+                "cwd": "${workspaceFolder}/backend"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Build Backend",
+            "type": "shell",
+            "command": "\"C:\\apache-maven-3.8.8\\bin\\mvn.cmd\"",
+            "args": [
+                "clean",
+                "compile"
+            ],
+            "group": "build",
+            "options": {
+                "cwd": "${workspaceFolder}/backend"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Install Frontend Dependencies",
+            "type": "shell",
+            "command": "npm",
+            "args": [
+                "install"
+            ],
+            "group": "build",
+            "options": {
+                "cwd": "${workspaceFolder}/frontend"
+            }
+        }
+    ]
+}

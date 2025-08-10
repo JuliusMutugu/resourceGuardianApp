@@ -1,0 +1,34 @@
+{
+    "folders": [
+        {
+            "name": "Resource Guardian Backend",
+            "path": "./backend"
+        },
+        {
+            "name": "Resource Guardian Frontend",
+            "path": "./frontend"
+        }
+    ],
+    "settings": {
+        "java.configuration.updateBuildConfiguration": "automatic",
+        "java.import.maven.enabled": true,
+        "java.maven.downloadSources": true,
+        "java.maven.downloadJavadoc": true,
+        "java.sources.organizeImports.starThreshold": 99,
+        "java.sources.organizeImports.staticStarThreshold": 99,
+        "java.compile.nullAnalysis.mode": "automatic",
+        "java.configuration.runtimes": [],
+        "maven.executable.path": "C:\\apache-maven-3.8.8\\bin\\mvn.cmd",
+        "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx2G -Xms100m"
+    },
+    "extensions": {
+        "recommendations": [
+            "vscjava.vscode-java-pack",
+            "vscjava.vscode-maven",
+            "vscjava.vscode-spring-initializr",
+            "pivotal.vscode-spring-boot",
+            "ms-vscode.vscode-typescript-next",
+            "expo.vscode-expo-tools"
+        ]
+    }
+}

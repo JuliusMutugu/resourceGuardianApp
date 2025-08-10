@@ -1,0 +1,160 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.resourceguardian.app"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="35" />
+10
+11    <permission
+11-->[androidx.core:core:1.13.1] C:\Users\Julimore\.gradle\caches\transforms-3\a36459d28d3fef11b98a10669c1b544a\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
+12        android:name="com.resourceguardian.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+12-->[androidx.core:core:1.13.1] C:\Users\Julimore\.gradle\caches\transforms-3\a36459d28d3fef11b98a10669c1b544a\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
+13        android:protectionLevel="signature" />
+13-->[androidx.core:core:1.13.1] C:\Users\Julimore\.gradle\caches\transforms-3\a36459d28d3fef11b98a10669c1b544a\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
+14
+15    <uses-permission android:name="com.resourceguardian.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+15-->[androidx.core:core:1.13.1] C:\Users\Julimore\.gradle\caches\transforms-3\a36459d28d3fef11b98a10669c1b544a\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
+15-->[androidx.core:core:1.13.1] C:\Users\Julimore\.gradle\caches\transforms-3\a36459d28d3fef11b98a10669c1b544a\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
+16
+17    <application
+18        android:name="android.app.Application"
+18-->C:\Users\Julimore\Pictures\Screenshots\mine\resource-guardian-app\flutter_frontend\android\app\src\main\AndroidManifest.xml:4:9-42
+19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+19-->[androidx.core:core:1.13.1] C:\Users\Julimore\.gradle\caches\transforms-3\a36459d28d3fef11b98a10669c1b544a\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
+20        android:debuggable="true"
+21        android:extractNativeLibs="true"
+22        android:icon="@mipmap/ic_launcher"
+22-->C:\Users\Julimore\Pictures\Screenshots\mine\resource-guardian-app\flutter_frontend\android\app\src\main\AndroidManifest.xml:5:9-43
+23        android:label="Resource Guardian" >
+23-->C:\Users\Julimore\Pictures\Screenshots\mine\resource-guardian-app\flutter_frontend\android\app\src\main\AndroidManifest.xml:3:9-42
+24        <activity
+24-->C:\Users\Julimore\Pictures\Screenshots\mine\resource-guardian-app\flutter_frontend\android\app\src\main\AndroidManifest.xml:6:9-26:20
+25            android:name="com.resourceguardian.app.MainActivity"
+25-->C:\Users\Julimore\Pictures\Screenshots\mine\resource-guardian-app\flutter_frontend\android\app\src\main\AndroidManifest.xml:7:13-41
+26            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+26-->C:\Users\Julimore\Pictures\Screenshots\mine\resource-guardian-app\flutter_frontend\android\app\src\main\AndroidManifest.xml:11:13-163
+27            android:exported="true"
+27-->C:\Users\Julimore\Pictures\Screenshots\mine\resource-guardian-app\flutter_frontend\android\app\src\main\AndroidManifest.xml:8:13-36
+28            android:hardwareAccelerated="true"
+28-->C:\Users\Julimore\Pictures\Screenshots\mine\resource-guardian-app\flutter_frontend\android\app\src\main\AndroidManifest.xml:12:13-47
+29            android:launchMode="singleTop"
+29-->C:\Users\Julimore\Pictures\Screenshots\mine\resource-guardian-app\flutter_frontend\android\app\src\main\AndroidManifest.xml:9:13-43
+30            android:theme="@style/LaunchTheme"
+30-->C:\Users\Julimore\Pictures\Screenshots\mine\resource-guardian-app\flutter_frontend\android\app\src\main\AndroidManifest.xml:10:13-47
+31            android:windowSoftInputMode="adjustResize" >
+31-->C:\Users\Julimore\Pictures\Screenshots\mine\resource-guardian-app\flutter_frontend\android\app\src\main\AndroidManifest.xml:13:13-55
+32
+33            <!--
+34                 Specifies an Android theme to apply to this Activity as soon as
+35                 the Android process has started. This theme is visible to the user
+36                 while the Flutter UI initializes. After that, this theme continues
+37                 to determine the Window background behind the Flutter UI.
+38            -->
+39            <meta-data
+39-->C:\Users\Julimore\Pictures\Screenshots\mine\resource-guardian-app\flutter_frontend\android\app\src\main\AndroidManifest.xml:18:13-21:17
+40                android:name="io.flutter.embedding.android.NormalTheme"
+40-->C:\Users\Julimore\Pictures\Screenshots\mine\resource-guardian-app\flutter_frontend\android\app\src\main\AndroidManifest.xml:19:15-70
+41                android:resource="@style/NormalTheme" />
+41-->C:\Users\Julimore\Pictures\Screenshots\mine\resource-guardian-app\flutter_frontend\android\app\src\main\AndroidManifest.xml:20:15-52
+42
+43            <intent-filter android:autoVerify="true" >
+43-->C:\Users\Julimore\Pictures\Screenshots\mine\resource-guardian-app\flutter_frontend\android\app\src\main\AndroidManifest.xml:22:13-25:29
+43-->C:\Users\Julimore\Pictures\Screenshots\mine\resource-guardian-app\flutter_frontend\android\app\src\main\AndroidManifest.xml:22:28-53
+44                <action android:name="android.intent.action.MAIN" />
+44-->C:\Users\Julimore\Pictures\Screenshots\mine\resource-guardian-app\flutter_frontend\android\app\src\main\AndroidManifest.xml:23:17-68
+44-->C:\Users\Julimore\Pictures\Screenshots\mine\resource-guardian-app\flutter_frontend\android\app\src\main\AndroidManifest.xml:23:25-66
+45
+46                <category android:name="android.intent.category.LAUNCHER" />
+46-->C:\Users\Julimore\Pictures\Screenshots\mine\resource-guardian-app\flutter_frontend\android\app\src\main\AndroidManifest.xml:24:17-76
+46-->C:\Users\Julimore\Pictures\Screenshots\mine\resource-guardian-app\flutter_frontend\android\app\src\main\AndroidManifest.xml:24:27-74
+47            </intent-filter>
+48        </activity>
+49        <!--
+50             Don't delete the meta-data below.
+51             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+52        -->
+53        <meta-data
+53-->C:\Users\Julimore\Pictures\Screenshots\mine\resource-guardian-app\flutter_frontend\android\app\src\main\AndroidManifest.xml:29:9-31:33
+54            android:name="flutterEmbedding"
+54-->C:\Users\Julimore\Pictures\Screenshots\mine\resource-guardian-app\flutter_frontend\android\app\src\main\AndroidManifest.xml:30:13-44
+55            android:value="2" />
+55-->C:\Users\Julimore\Pictures\Screenshots\mine\resource-guardian-app\flutter_frontend\android\app\src\main\AndroidManifest.xml:31:13-30
+56
+57        <uses-library
+57-->[androidx.window:window:1.2.0] C:\Users\Julimore\.gradle\caches\transforms-3\89a4438245c7a8dffd8d541a9c058b32\transformed\jetified-window-1.2.0\AndroidManifest.xml:23:9-25:40
+58            android:name="androidx.window.extensions"
+58-->[androidx.window:window:1.2.0] C:\Users\Julimore\.gradle\caches\transforms-3\89a4438245c7a8dffd8d541a9c058b32\transformed\jetified-window-1.2.0\AndroidManifest.xml:24:13-54
+59            android:required="false" />
+59-->[androidx.window:window:1.2.0] C:\Users\Julimore\.gradle\caches\transforms-3\89a4438245c7a8dffd8d541a9c058b32\transformed\jetified-window-1.2.0\AndroidManifest.xml:25:13-37
+60        <uses-library
+60-->[androidx.window:window:1.2.0] C:\Users\Julimore\.gradle\caches\transforms-3\89a4438245c7a8dffd8d541a9c058b32\transformed\jetified-window-1.2.0\AndroidManifest.xml:26:9-28:40
+61            android:name="androidx.window.sidecar"
+61-->[androidx.window:window:1.2.0] C:\Users\Julimore\.gradle\caches\transforms-3\89a4438245c7a8dffd8d541a9c058b32\transformed\jetified-window-1.2.0\AndroidManifest.xml:27:13-51
+62            android:required="false" />
+62-->[androidx.window:window:1.2.0] C:\Users\Julimore\.gradle\caches\transforms-3\89a4438245c7a8dffd8d541a9c058b32\transformed\jetified-window-1.2.0\AndroidManifest.xml:28:13-37
+63
+64        <provider
+64-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\Julimore\.gradle\caches\transforms-3\92ee18ec76270131a16394d6dcf45d16\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:24:9-32:20
+65            android:name="androidx.startup.InitializationProvider"
+65-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\Julimore\.gradle\caches\transforms-3\92ee18ec76270131a16394d6dcf45d16\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:25:13-67
+66            android:authorities="com.resourceguardian.app.androidx-startup"
+66-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\Julimore\.gradle\caches\transforms-3\92ee18ec76270131a16394d6dcf45d16\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:26:13-68
+67            android:exported="false" >
+67-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\Julimore\.gradle\caches\transforms-3\92ee18ec76270131a16394d6dcf45d16\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:27:13-37
+68            <meta-data
+68-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\Julimore\.gradle\caches\transforms-3\92ee18ec76270131a16394d6dcf45d16\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:29:13-31:52
+69                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+69-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\Julimore\.gradle\caches\transforms-3\92ee18ec76270131a16394d6dcf45d16\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:30:17-78
+70                android:value="androidx.startup" />
+70-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\Julimore\.gradle\caches\transforms-3\92ee18ec76270131a16394d6dcf45d16\transformed\jetified-lifecycle-process-2.7.0\AndroidManifest.xml:31:17-49
+71            <meta-data
+71-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Julimore\.gradle\caches\transforms-3\1b458de5db65724ba1753677eea54dee\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+72                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+72-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Julimore\.gradle\caches\transforms-3\1b458de5db65724ba1753677eea54dee\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+73                android:value="androidx.startup" />
+73-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Julimore\.gradle\caches\transforms-3\1b458de5db65724ba1753677eea54dee\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+74        </provider>
+75
+76        <receiver
+76-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Julimore\.gradle\caches\transforms-3\1b458de5db65724ba1753677eea54dee\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+77            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+77-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Julimore\.gradle\caches\transforms-3\1b458de5db65724ba1753677eea54dee\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+78            android:directBootAware="false"
+78-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Julimore\.gradle\caches\transforms-3\1b458de5db65724ba1753677eea54dee\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+79            android:enabled="true"
+79-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Julimore\.gradle\caches\transforms-3\1b458de5db65724ba1753677eea54dee\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+80            android:exported="true"
+80-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Julimore\.gradle\caches\transforms-3\1b458de5db65724ba1753677eea54dee\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+81            android:permission="android.permission.DUMP" >
+81-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Julimore\.gradle\caches\transforms-3\1b458de5db65724ba1753677eea54dee\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+82            <intent-filter>
+82-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Julimore\.gradle\caches\transforms-3\1b458de5db65724ba1753677eea54dee\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+83                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+83-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Julimore\.gradle\caches\transforms-3\1b458de5db65724ba1753677eea54dee\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+83-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Julimore\.gradle\caches\transforms-3\1b458de5db65724ba1753677eea54dee\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+84            </intent-filter>
+85            <intent-filter>
+85-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Julimore\.gradle\caches\transforms-3\1b458de5db65724ba1753677eea54dee\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+86                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+86-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Julimore\.gradle\caches\transforms-3\1b458de5db65724ba1753677eea54dee\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+86-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Julimore\.gradle\caches\transforms-3\1b458de5db65724ba1753677eea54dee\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+87            </intent-filter>
+88            <intent-filter>
+88-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Julimore\.gradle\caches\transforms-3\1b458de5db65724ba1753677eea54dee\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+89                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+89-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Julimore\.gradle\caches\transforms-3\1b458de5db65724ba1753677eea54dee\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+89-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Julimore\.gradle\caches\transforms-3\1b458de5db65724ba1753677eea54dee\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+90            </intent-filter>
+91            <intent-filter>
+91-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Julimore\.gradle\caches\transforms-3\1b458de5db65724ba1753677eea54dee\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+92                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+92-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Julimore\.gradle\caches\transforms-3\1b458de5db65724ba1753677eea54dee\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+92-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Julimore\.gradle\caches\transforms-3\1b458de5db65724ba1753677eea54dee\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+93            </intent-filter>
+94        </receiver>
+95    </application>
+96
+97</manifest>
