@@ -196,9 +196,9 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
                   color: Colors.white.withOpacity(0.2),
                   borderRadius: BorderRadius.circular(AppSizes.radiusSm),
                 ),
-                child: const Text(
+                child: Text(
                   _selectedPeriod,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 12,
                     fontWeight: FontWeight.w500,

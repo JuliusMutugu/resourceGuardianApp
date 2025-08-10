@@ -405,25 +405,156 @@ class _MainAppScreenState extends State<MainAppScreen> {
   }) {
     final isSelected = _currentIndex == index;
     
-    return ListTile(
-      leading: Icon(
-        icon,
-        color: isSelected ? Theme.of(context).primaryColor : null,
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+      decoration: BoxDecoration(
+        color: isSelected 
+          ? const Color(0xFF6366F1).withOpacity(0.1)
+          : Colors.transparent,
+        borderRadius: BorderRadius.circular(12),
       ),
-      title: Text(
-        title,
-        style: TextStyle(
-          color: isSelected ? Theme.of(context).primaryColor : null,
-          fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
+      child: ListTile(
+        leading: Container(
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            color: isSelected 
+              ? const Color(0xFF6366F1).withOpacity(0.2)
+              : Colors.transparent,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Icon(
+            icon,
+            color: isSelected 
+              ? const Color(0xFF6366F1)
+              : Theme.of(context).brightness == Brightness.dark
+                ? Colors.white70
+                : Colors.black54,
+            size: 22,
+          ),
         ),
+        title: Text(
+          title,
+          style: TextStyle(
+            color: isSelected 
+              ? const Color(0xFF6366F1)
+              : Theme.of(context).brightness == Brightness.dark
+                ? Colors.white
+                : Colors.black87,
+            fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
+            fontSize: 15,
+          ),
+        ),
+        selected: isSelected,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        onTap: () {
+          Navigator.pop(context);
+          setState(() {
+            _currentIndex = index;
+          });
+        },
       ),
-      selected: isSelected,
-      onTap: () {
-        Navigator.pop(context);
-        setState(() {
-          _currentIndex = index;
-        });
-      },
+    );
+  }
+
+  Widget _buildModernDrawerItem({
+    required IconData icon,
+    required String title,
+    required int index,
+  }) {
+    final isSelected = _currentIndex == index;
+    
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+      decoration: BoxDecoration(
+        color: isSelected 
+          ? const Color(0xFF6366F1).withOpacity(0.1)
+          : Colors.transparent,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: ListTile(
+        leading: Container(
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            color: isSelected 
+              ? const Color(0xFF6366F1).withOpacity(0.2)
+              : Colors.transparent,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Icon(
+            icon,
+            color: isSelected 
+              ? const Color(0xFF6366F1)
+              : Theme.of(context).brightness == Brightness.dark
+                ? Colors.white70
+                : Colors.black54,
+            size: 22,
+          ),
+        ),
+        title: Text(
+          title,
+          style: TextStyle(
+            color: isSelected 
+              ? const Color(0xFF6366F1)
+              : Theme.of(context).brightness == Brightness.dark
+                ? Colors.white
+                : Colors.black87,
+            fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
+            fontSize: 15,
+          ),
+        ),
+        selected: isSelected,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        onTap: () {
+          Navigator.pop(context);
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+      ),
+    );
+  }
+
+  Widget _buildModernNavigationItem({
+    required IconData icon,
+    required String title,
+    required VoidCallback onTap,
+  }) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+      child: ListTile(
+        leading: Container(
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            color: Colors.transparent,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Icon(
+            icon,
+            color: Theme.of(context).brightness == Brightness.dark
+                ? Colors.white70
+                : Colors.black54,
+            size: 22,
+          ),
+        ),
+        title: Text(
+          title,
+          style: TextStyle(
+            color: Theme.of(context).brightness == Brightness.dark
+                ? Colors.white
+                : Colors.black87,
+            fontWeight: FontWeight.w500,
+            fontSize: 15,
+          ),
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        onTap: onTap,
+      ),
     );
   }
 

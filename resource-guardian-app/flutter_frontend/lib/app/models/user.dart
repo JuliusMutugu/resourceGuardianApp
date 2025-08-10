@@ -15,6 +15,19 @@ class User {
     this.profilePicture,
   });
 
+  // Getter for the full name
+  String get name {
+    if (firstName != null && lastName != null) {
+      return '$firstName $lastName';
+    } else if (firstName != null) {
+      return firstName!;
+    } else if (lastName != null) {
+      return lastName!;
+    } else {
+      return username;
+    }
+  }
+
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
       id: json['id'],

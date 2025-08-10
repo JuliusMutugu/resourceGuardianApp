@@ -17,7 +17,7 @@ class ProfileScreen extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.settings_outlined),
             onPressed: () {
-              // TODO: Navigate to settings
+              context.push('/settings');
             },
           ),
         ],
@@ -42,7 +42,7 @@ class ProfileScreen extends StatelessWidget {
                     title: 'Personal Information',
                     subtitle: 'Update your profile details',
                     onTap: () {
-                      // TODO: Navigate to personal info
+                      context.push('/personal-info');
                     },
                   ),
                   _MenuItem(
@@ -50,7 +50,7 @@ class ProfileScreen extends StatelessWidget {
                     title: 'Security',
                     subtitle: 'Change password and security settings',
                     onTap: () {
-                      // TODO: Navigate to security
+                      context.push('/security');
                     },
                   ),
                   _MenuItem(
@@ -58,7 +58,7 @@ class ProfileScreen extends StatelessWidget {
                     title: 'Notifications',
                     subtitle: 'Manage your notification preferences',
                     onTap: () {
-                      // TODO: Navigate to notifications
+                      context.push('/notifications');
                     },
                   ),
                 ]),
@@ -70,7 +70,7 @@ class ProfileScreen extends StatelessWidget {
                     title: 'Theme',
                     subtitle: 'Choose your app appearance',
                     onTap: () {
-                      // TODO: Navigate to theme settings
+                      context.push('/settings');
                     },
                   ),
                   _MenuItem(
@@ -78,7 +78,7 @@ class ProfileScreen extends StatelessWidget {
                     title: 'Language',
                     subtitle: 'Select your preferred language',
                     onTap: () {
-                      // TODO: Navigate to language settings
+                      _showComingSoonSnackBar(context, 'Language settings');
                     },
                   ),
                   _MenuItem(
@@ -86,7 +86,7 @@ class ProfileScreen extends StatelessWidget {
                     title: 'Backup & Sync',
                     subtitle: 'Manage your data backup',
                     onTap: () {
-                      // TODO: Navigate to backup settings
+                      _showComingSoonSnackBar(context, 'Backup & sync');
                     },
                   ),
                 ]),
@@ -98,7 +98,7 @@ class ProfileScreen extends StatelessWidget {
                     title: 'Help & Support',
                     subtitle: 'Get help and contact support',
                     onTap: () {
-                      // TODO: Navigate to help
+                      _showComingSoonSnackBar(context, 'Help & support');
                     },
                   ),
                   _MenuItem(
@@ -106,7 +106,7 @@ class ProfileScreen extends StatelessWidget {
                     title: 'Send Feedback',
                     subtitle: 'Share your thoughts and suggestions',
                     onTap: () {
-                      // TODO: Navigate to feedback
+                      _showComingSoonSnackBar(context, 'Feedback');
                     },
                   ),
                   _MenuItem(
@@ -114,7 +114,7 @@ class ProfileScreen extends StatelessWidget {
                     title: 'About',
                     subtitle: 'App version and information',
                     onTap: () {
-                      // TODO: Navigate to about
+                      _showAboutDialog(context);
                     },
                   ),
                 ]),
@@ -262,7 +262,7 @@ class ProfileScreen extends StatelessWidget {
                 color: Colors.white.withOpacity(0.9),
               ),
               onPressed: () {
-                // TODO: Navigate to edit profile
+                context.push('/personal-info');
               },
             ),
           ),
@@ -289,7 +289,7 @@ class ProfileScreen extends StatelessWidget {
           decoration: BoxDecoration(
             color: AppColors.cardBackground,
             borderRadius: BorderRadius.circular(AppSizes.radiusMd),
-            border: Border.all(color: AppColors.gray200),
+            border: Border.all(color: AppColors.border),
           ),
           child: Column(
             children: items.map((item) => _buildMenuItem(context, item)).toList(),
@@ -382,6 +382,58 @@ class ProfileScreen extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  void _showComingSoonSnackBar(BuildContext context, String feature) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('$feature coming soon!'),
+        backgroundColor: AppColors.info,
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(AppSizes.radiusMd),
+        ),
+      ),
+    );
+  }
+
+  void _showAboutDialog(BuildContext context) {
+    showAboutDialog(
+      context: context,
+      applicationName: 'Resource Guardian',
+      applicationVersion: '1.0.0',
+      applicationIcon: Container(
+        width: 60,
+        height: 60,
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(
+            colors: [AppColors.gradientStart, AppColors.gradientEnd],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: const Icon(
+          Icons.account_balance_wallet,
+          color: Colors.white,
+          size: 30,
+        ),
+      ),
+      children: [
+        const SizedBox(height: 16),
+        Text(
+          'A modern financial management app designed for young professionals to take control of their finances.',
+          style: Theme.of(context).textTheme.bodyMedium,
+        ),
+        const SizedBox(height: 16),
+        Text(
+          '© 2025 Resource Guardian App',
+          style: Theme.of(context).textTheme.bodySmall?.copyWith(
+            color: AppColors.textSecondary,
+          ),
+        ),
+      ],
     );
   }
 }
