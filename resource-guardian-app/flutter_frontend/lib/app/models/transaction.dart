@@ -1,6 +1,7 @@
 import 'package:intl/intl.dart';
 
 enum TransactionType { income, expense }
+enum TransactionStatus { completed, pending, failed, cancelled }
 
 class Transaction {
   final String id;
@@ -10,6 +11,7 @@ class Transaction {
   final TransactionType type;
   final DateTime date;
   final String userId;
+  final TransactionStatus status;
 
   Transaction({
     required this.id,
@@ -19,6 +21,7 @@ class Transaction {
     required this.type,
     required this.date,
     required this.userId,
+    this.status = TransactionStatus.completed,
   });
 
   factory Transaction.fromJson(Map<String, dynamic> json) {
@@ -30,6 +33,10 @@ class Transaction {
       type: json['type'] == 'income' ? TransactionType.income : TransactionType.expense,
       date: DateTime.parse(json['date']),
       userId: json['userId'],
+      status: TransactionStatus.values.firstWhere(
+        (e) => e.name == json['status'],
+        orElse: () => TransactionStatus.completed,
+      ),
     );
   }
 
@@ -42,6 +49,7 @@ class Transaction {
       'type': type == TransactionType.income ? 'income' : 'expense',
       'date': date.toIso8601String(),
       'userId': userId,
+      'status': status.name,
     };
   }
 

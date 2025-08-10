@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../theme/app_colors.dart';
+import '../../theme/app_sizes.dart';
 import '../../providers/transaction_provider.dart';
-import '../../widgets/transaction_list_item.dart';
+import '../../widgets/transaction_card.dart';
 import '../../widgets/custom_button.dart';
+import '../../models/transaction.dart';
 
 class TransactionsScreen extends StatefulWidget {
   const TransactionsScreen({super.key});
@@ -239,6 +241,45 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
     // TODO: Implement transaction details dialog
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text('Transaction details for: ${transaction.description}')),
+    );
+  }
+
+  Widget TransactionListItem({
+    required Transaction transaction,
+    required VoidCallback onTap,
+  }) {
+    return Card(
+      elevation: 2,
+      margin: const EdgeInsets.symmetric(vertical: AppSizes.xs),
+      child: ListTile(
+        leading: CircleAvatar(
+          backgroundColor: transaction.isIncome 
+            ? AppColors.success.withOpacity(0.1)
+            : AppColors.error.withOpacity(0.1),
+          child: Icon(
+            transaction.isIncome ? Icons.arrow_downward : Icons.arrow_upward,
+            color: transaction.isIncome ? AppColors.success : AppColors.error,
+          ),
+        ),
+        title: Text(
+          transaction.description,
+          style: const TextStyle(fontWeight: FontWeight.w600),
+        ),
+        subtitle: Text(
+          '${transaction.category} • ${transaction.formattedDate}',
+          style: TextStyle(
+            color: Theme.of(context).textTheme.bodySmall?.color,
+          ),
+        ),
+        trailing: Text(
+          '${transaction.isIncome ? '+' : '-'}KSh ${transaction.amount.toStringAsFixed(0)}',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: transaction.isIncome ? AppColors.success : AppColors.error,
+          ),
+        ),
+        onTap: onTap,
+      ),
     );
   }
 }

@@ -4,6 +4,9 @@ import '../../theme/app_colors.dart';
 import '../../theme/app_sizes.dart';
 import '../../widgets/enhanced_ui_components.dart';
 import '../../providers/digital_wellness_provider.dart';
+import '../../models/app_usage.dart';
+import '../../models/daily_usage.dart';
+import '../../models/app_limit.dart';
 
 class DigitalWellnessScreen extends StatefulWidget {
   const DigitalWellnessScreen({super.key});
