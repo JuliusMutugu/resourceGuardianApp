@@ -38,38 +38,3 @@ class AppColors {
   static const Color gradientStart = Color(0xFF4A90E2);
   static const Color gradientEnd = Color(0xFF50E3C2);
 }
-
-class AppSizes {
-  // Font sizes
-  static const double fontXs = 12;
-  static const double fontSm = 14;
-  static const double fontMd = 16;
-  static const double fontLg = 18;
-  static const double fontXl = 20;
-  static const double font2Xl = 24;
-  static const double font3Xl = 30;
-  static const double font4Xl = 36;
-  
-  // Spacing
-  static const double xs = 4;
-  static const double sm = 8;
-  static const double md = 16;
-  static const double lg = 24;
-  static const double xl = 32;
-  static const double xxl = 48;
-  
-  // Border radius
-  static const double radiusXs = 4;
-  static const double radiusSm = 8;
-  static const double radiusMd = 12;
-  static const double radiusLg = 16;
-  static const double radiusXl = 24;
-  static const double radiusFull = 999;
-  
-  // Icon sizes
-  static const double iconXs = 16;
-  static const double iconSm = 20;
-  static const double iconMd = 24;
-  static const double iconLg = 32;
-  static const double iconXl = 40;
-}

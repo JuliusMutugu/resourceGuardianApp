@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
 import '../../theme/app_colors.dart';
+import '../../theme/app_sizes.dart';
 import '../../providers/dashboard_provider.dart';
 import '../../widgets/balance_card.dart';
 import '../../widgets/savings_goal_card.dart';

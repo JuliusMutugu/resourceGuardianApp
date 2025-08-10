@@ -1,20 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:go_router/go_router.dart';
-import 'app/router/app_router.dart';
 import 'app/theme/app_theme.dart';
-import 'app/config/app_config.dart';
-import 'app/providers/auth_provider.dart';
-import 'app/providers/dashboard_provider.dart';
-import 'app/providers/transaction_provider.dart';
-import 'app/providers/goals_provider.dart';
+import 'app/providers/theme_provider.dart';
+import 'app/screens/main/dashboard_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
-  // Initialize app configuration
-  await AppConfig.initialize();
-  
   runApp(const ResourceGuardianApp());
 }
 
@@ -23,22 +14,73 @@ class ResourceGuardianApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => AuthProvider()),
-        ChangeNotifierProvider(create: (_) => DashboardProvider()),
-        ChangeNotifierProvider(create: (_) => TransactionProvider()),
-        ChangeNotifierProvider(create: (_) => GoalsProvider()),
-      ],
-      child: Consumer<AuthProvider>(
-        builder: (context, authProvider, _) {
-          return MaterialApp.router(
+    return ChangeNotifierProvider(
+      create: (_) => ThemeProvider(),
+      child: Consumer<ThemeProvider>(
+        builder: (context, themeProvider, _) {
+          return MaterialApp(
             title: 'Resource Guardian',
             debugShowCheckedModeBanner: false,
             theme: AppTheme.lightTheme,
-            routerConfig: AppRouter.router,
+            darkTheme: AppTheme.darkTheme,
+            themeMode: themeProvider.themeMode,
+            home: const MainAppScreen(),
           );
         },
+      ),
+    );
+  }
+}
+
+class MainAppScreen extends StatelessWidget {
+  const MainAppScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Resource Guardian'),
+        actions: [
+          Consumer<ThemeProvider>(
+            builder: (context, themeProvider, _) {
+              return IconButton(
+                onPressed: () => themeProvider.toggleTheme(),
+                icon: Icon(
+                  themeProvider.isDarkMode 
+                    ? Icons.light_mode 
+                    : Icons.dark_mode,
+                ),
+                tooltip: 'Toggle theme',
+              );
+            },
+          ),
+        ],
+      ),
+      body: const DashboardScreen(),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.dashboard),
+            label: 'Dashboard',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_balance_wallet),
+            label: 'Transactions',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.savings),
+            label: 'Goals',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.health_and_safety),
+            label: 'Wellness',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
       ),
     );
   }

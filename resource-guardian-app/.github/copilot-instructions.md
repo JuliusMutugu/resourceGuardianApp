@@ -1,28 +1,28 @@
 # GitHub Copilot Instructions for Resource Guardian
 
 ## Project Overview
-Resource Guardian is a comprehensive financial management and digital behavior control application built with React Native frontend and Spring Boot backend. This is a production-ready, market-ready application that helps users control their spending, manage savings goals, and control their digital behavior for better life balance.
+Resource Guardian is a comprehensive financial management and digital behavior control application built with Flutter frontend and Spring Boot backend. This is a production-ready, market-ready application that helps users control their spending, manage savings goals, and control their digital behavior for better life balance.
 
 ## Architecture
-- **Frontend**: React Native 0.80.2 with TypeScript, Redux Toolkit, React Navigation 6, Material Design 3
-- **Backend**: Spring Boot 3.2.0 with Java 17, PostgreSQL, JWT Authentication, M-Pesa Integration
+- **Frontend**: Flutter 3.10+ with Dart, Provider for state management, Go Router for navigation, Material Design 3
+- **Backend**: Spring Boot 3.3.2 with Java 21, PostgreSQL, JWT Authentication, M-Pesa Integration
 - **Database**: PostgreSQL with comprehensive entity relationships
 - **Authentication**: JWT-based with role-based access control
 
 ## Code Quality Standards
 
-### React Native (Frontend)
-- Use TypeScript with strict type checking
-- Follow React Native best practices and performance optimization
-- Use Redux Toolkit for state management with proper slices
+### Flutter (Frontend)
+- Use Dart with strong typing and null safety
+- Follow Flutter best practices and performance optimization
+- Use Provider for state management with proper architecture
 - Implement Material Design 3 components consistently
-- Use React Navigation 6 for navigation with TypeScript support
-- Implement proper error boundaries and loading states
-- Use React Query for API data fetching and caching
-- Follow functional component patterns with hooks
+- Use Go Router for navigation with type-safe routing
+- Implement proper error handling and loading states
+- Use Dio for HTTP client with proper interceptors
+- Follow clean architecture principles with separation of concerns
 
 ### Spring Boot (Backend)
-- Use Java 17 features and best practices
+- Use Java 21 features and best practices
 - Follow Spring Boot conventions and patterns
 - Implement proper REST API design principles
 - Use Spring Security for authentication and authorization
@@ -55,11 +55,12 @@ Resource Guardian is a comprehensive financial management and digital behavior c
 - Parental controls
 
 ### User Experience
-- Material Design 3 interface
+- Material Design 3 interface with Flutter
 - Dark/light theme support
-- Offline capability
+- Offline capability with local storage
 - Real-time notifications
 - Accessibility features
+- Responsive design for various screen sizes
 
 ## Development Guidelines
 
@@ -81,8 +82,9 @@ Resource Guardian is a comprehensive financial management and digital behavior c
 - Optimize database queries
 - Implement proper caching strategies
 - Use lazy loading where appropriate
-- Optimize React Native performance
+- Optimize Flutter performance with best practices
 - Monitor and profile application performance
+- Use Flutter DevTools for debugging
 
 ## Current Entity Structure
 
@@ -124,12 +126,12 @@ Resource Guardian is a comprehensive financial management and digital behavior c
 - Document APIs with OpenAPI/Swagger
 
 ## Mobile App Guidelines
-- Design for both iOS and Android
-- Implement responsive layouts
-- Use native features appropriately
-- Handle different screen sizes
-- Implement proper navigation patterns
-- Follow platform-specific guidelines
+- Design for both iOS and Android with Flutter
+- Implement responsive layouts using Flutter's layout system
+- Use native features through Flutter plugins
+- Handle different screen sizes with MediaQuery
+- Implement proper navigation patterns with Go Router
+- Follow Material Design and Cupertino guidelines
 
 ## Integration Points
 - M-Pesa API for mobile payments
@@ -168,8 +170,10 @@ Resource Guardian is a comprehensive financial management and digital behavior c
 6. Maintain consistency with existing code style
 7. Provide production-ready, not prototype code
 8. Consider error handling and edge cases
-9. Ensure proper typing (TypeScript/Java generics)
+9. Ensure proper typing (Dart type safety)
 10. Follow the repository-service-controller pattern for backend
+11. Use Flutter widgets efficiently and avoid unnecessary rebuilds
+12. Implement proper state management with Provider
 
 ## Special Considerations
 - This is a market-ready application, not a prototype

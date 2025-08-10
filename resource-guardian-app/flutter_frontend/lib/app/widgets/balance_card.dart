@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../theme/app_colors.dart';
+import '../theme/app_sizes.dart';
 
 class BalanceCard extends StatelessWidget {
   final double totalBalance;
