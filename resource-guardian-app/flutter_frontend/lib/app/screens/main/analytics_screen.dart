@@ -63,6 +63,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
             Tab(text: 'Overview'),
             Tab(text: 'Spending'),
             Tab(text: 'Income'),
+            Tab(text: 'setLimit')
           ],
           labelColor: AppColors.primary,
           unselectedLabelColor: AppColors.textSecondary,
@@ -75,6 +76,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen>
           _buildOverviewTab(),
           _buildSpendingTab(),
           _buildIncomeTab(),
+          // const _showSnackBar(" this is yet to be implemented!")q
         ],
       ),
     );

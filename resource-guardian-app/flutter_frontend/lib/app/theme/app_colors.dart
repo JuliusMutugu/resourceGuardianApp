@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  // Modern Primary Colors - Vibrant and Young
-  static const Color primary = Color(0xFF6366F1); // Indigo
-  static const Color primaryDark = Color(0xFF4F46E5);
-  static const Color primaryLight = Color(0xFF818CF8);
-  static const Color secondary = Color(0xFF06B6D4); // Cyan
-  static const Color secondaryLight = Color(0xFF67E8F9);
-  static const Color accent = Color(0xFFF59E0B); // Amber
-  static const Color accentLight = Color(0xFFFBBF24);
+  // Modern Youth-Focused Colors - Vibrant and Trendy
+  static const Color primary = Color(0xFF7C3AED); // Vibrant Purple
+  static const Color primaryDark = Color(0xFF5B21B6);
+  static const Color primaryLight = Color(0xFF8B5CF6);
+  
+  static const Color secondary = Color(0xFF06B6D4); // Electric Cyan
+  static const Color secondaryDark = Color(0xFF0891B2);
+  static const Color secondaryLight = Color(0xFF22D3EE);
+  
+  static const Color accent = Color(0xFFFF6B6B); // Coral Pink
+  static const Color accentLight = Color(0xFFFF8A8A);
+  static const Color accentDark = Color(0xFFE74C3C);
   
   // Status Colors - More vibrant
   static const Color success = Color(0xFF10B981); // Emerald
