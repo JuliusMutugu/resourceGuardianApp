@@ -1,6 +1,6 @@
-package main.java.com.resourceguardian.backend.dto;
+package com.resourceguardian.backend.dto;
 
-import main.java.com.resourceguardian.backend.entity.User;
+import com.resourceguardian.backend.entity.User;
 
 public class AuthResponse {
     private String token;

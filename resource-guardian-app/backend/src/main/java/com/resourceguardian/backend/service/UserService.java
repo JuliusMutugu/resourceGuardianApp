@@ -1,7 +1,7 @@
-package main.java.com.resourceguardian.backend.service;
+package com.resourceguardian.backend.service;
 
-import main.java.com.resourceguardian.backend.entity.User;
-import main.java.com.resourceguardian.backend.repository.UserRepository;
+import com.resourceguardian.backend.entity.User;
+import com.resourceguardian.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

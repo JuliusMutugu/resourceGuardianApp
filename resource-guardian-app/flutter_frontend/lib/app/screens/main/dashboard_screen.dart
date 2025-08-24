@@ -44,7 +44,7 @@ class _DashboardScreenState extends State<DashboardScreen>
       parent: _animationController,
       curve: Curves.easeOutCubic,
     ));
-
+    
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<DashboardProvider>().loadDashboardData();
       _animationController.forward();
@@ -79,8 +79,7 @@ class _DashboardScreenState extends State<DashboardScreen>
         child: SafeArea(
           child: Consumer<DashboardProvider>(
             builder: (context, dashboardProvider, _) {
-              if (dashboardProvider.isLoading &&
-                  dashboardProvider.dashboardData == null) {
+              if (dashboardProvider.isLoading && dashboardProvider.dashboardData == null) {
                 return _buildLoadingState();
               }
 
@@ -105,7 +104,7 @@ class _DashboardScreenState extends State<DashboardScreen>
                       children: [
                         // Modern Header with Gradient
                         _buildModernHeader(),
-
+                        
                         // Main Content
                         Padding(
                           padding: const EdgeInsets.all(AppSizes.md),
@@ -197,7 +196,7 @@ class _DashboardScreenState extends State<DashboardScreen>
                 ),
               ),
               const SizedBox(width: AppSizes.md),
-
+              
               // Greeting and Name
               Expanded(
                 child: Column(
@@ -223,7 +222,7 @@ class _DashboardScreenState extends State<DashboardScreen>
                   ],
                 ),
               ),
-
+              
               // Notification Bell with Badge
               _buildNotificationButton(),
             ],
@@ -365,15 +364,14 @@ class _DashboardScreenState extends State<DashboardScreen>
         Text(
           'Quick Actions 🚀',
           style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                fontWeight: FontWeight.bold,
-                color: AppColors.textPrimary,
-              ),
+            fontWeight: FontWeight.bold,
+            color: AppColors.textPrimary,
+          ),
         ),
         const SizedBox(height: AppSizes.md),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children:
-              actions.map((action) => _buildQuickActionCard(action)).toList(),
+          children: actions.map((action) => _buildQuickActionCard(action)).toList(),
         ),
       ],
     );
@@ -452,9 +450,9 @@ class _DashboardScreenState extends State<DashboardScreen>
             Text(
               'Your Goals 🎯',
               style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.textPrimary,
-                  ),
+                fontWeight: FontWeight.bold,
+                color: AppColors.textPrimary,
+              ),
             ),
             Container(
               decoration: BoxDecoration(
@@ -561,15 +559,15 @@ class _DashboardScreenState extends State<DashboardScreen>
           Text(
             'Set Your First Goal! 🚀',
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
+              fontWeight: FontWeight.bold,
+            ),
           ),
           const SizedBox(height: 8),
           Text(
             'Start saving for something amazing today',
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: AppColors.textSecondary,
-                ),
+              color: AppColors.textSecondary,
+            ),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 16),
@@ -604,9 +602,9 @@ class _DashboardScreenState extends State<DashboardScreen>
             Text(
               'Recent Activity 💫',
               style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.textPrimary,
-                  ),
+                fontWeight: FontWeight.bold,
+                color: AppColors.textPrimary,
+              ),
             ),
             Container(
               decoration: BoxDecoration(
@@ -711,15 +709,15 @@ class _DashboardScreenState extends State<DashboardScreen>
           Text(
             'No Activity Yet 📝',
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
+              fontWeight: FontWeight.bold,
+            ),
           ),
           const SizedBox(height: 8),
           Text(
             'Your transactions will appear here',
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: AppColors.textSecondary,
-                ),
+              color: AppColors.textSecondary,
+            ),
             textAlign: TextAlign.center,
           ),
         ],
@@ -748,9 +746,9 @@ class _DashboardScreenState extends State<DashboardScreen>
           Text(
             'Loading your financial universe... 🚀',
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.textPrimary,
-                ),
+              fontWeight: FontWeight.bold,
+              color: AppColors.textPrimary,
+            ),
           ),
         ],
       ),
@@ -803,16 +801,16 @@ class _DashboardScreenState extends State<DashboardScreen>
             Text(
               'Oops! Something went wrong 😅',
               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+                fontWeight: FontWeight.bold,
+              ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 12),
             Text(
               dashboardProvider.error!,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: AppColors.textSecondary,
-                  ),
+                color: AppColors.textSecondary,
+              ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 24),
@@ -821,8 +819,7 @@ class _DashboardScreenState extends State<DashboardScreen>
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.primary,
                 foregroundColor: Colors.white,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16),
                 ),
@@ -883,16 +880,16 @@ class _DashboardScreenState extends State<DashboardScreen>
             Text(
               'Welcome to Resource Guardian! 🎉',
               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+                fontWeight: FontWeight.bold,
+              ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 12),
             Text(
               'Start your financial journey today',
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: AppColors.textSecondary,
-                  ),
+                color: AppColors.textSecondary,
+              ),
               textAlign: TextAlign.center,
             ),
           ],

@@ -16,8 +16,7 @@ class GoalsScreen extends StatefulWidget {
   State<GoalsScreen> createState() => _GoalsScreenState();
 }
 
-class _GoalsScreenState extends State<GoalsScreen>
-    with TickerProviderStateMixin {
+class _GoalsScreenState extends State<GoalsScreen> with TickerProviderStateMixin {
   late TabController _tabController;
   late AnimationController _animationController;
   late Animation<double> _fadeAnimation;
@@ -37,7 +36,7 @@ class _GoalsScreenState extends State<GoalsScreen>
       parent: _animationController,
       curve: Curves.easeInOut,
     ));
-
+    
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<GoalsProvider>().loadGoals();
       _animationController.forward();
@@ -73,10 +72,10 @@ class _GoalsScreenState extends State<GoalsScreen>
               children: [
                 // Modern Header
                 _buildModernHeader(),
-
+                
                 // Tab Bar
                 _buildModernTabBar(),
-
+                
                 // Content
                 Expanded(
                   child: Consumer<GoalsProvider>(
@@ -93,8 +92,7 @@ class _GoalsScreenState extends State<GoalsScreen>
                         controller: _tabController,
                         children: [
                           _buildGoalsList(goalsProvider.activeGoals, 'active'),
-                          _buildGoalsList(
-                              goalsProvider.completedGoals, 'completed'),
+                          _buildGoalsList(goalsProvider.completedGoals, 'completed'),
                         ],
                       );
                     },
@@ -331,38 +329,33 @@ class _GoalsScreenState extends State<GoalsScreen>
             Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: type == 'active'
+                color: type == 'active' 
                     ? AppColors.primary.withOpacity(0.1)
                     : AppColors.secondary.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Icon(
-                type == 'active'
-                    ? Icons.track_changes_outlined
-                    : Icons.celebration_outlined,
+                type == 'active' ? Icons.track_changes_outlined : Icons.celebration_outlined,
                 size: 64,
-                color:
-                    type == 'active' ? AppColors.primary : AppColors.secondary,
+                color: type == 'active' ? AppColors.primary : AppColors.secondary,
               ),
             ),
             const SizedBox(height: 24),
             Text(
-              type == 'active'
-                  ? 'Ready to Set Goals? 🎯'
-                  : 'Achievement Zone 🏆',
+              type == 'active' ? 'Ready to Set Goals? 🎯' : 'Achievement Zone 🏆',
               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+                fontWeight: FontWeight.bold,
+              ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 12),
             Text(
-              type == 'active'
+              type == 'active' 
                   ? 'Create your first savings goal and start your journey to financial success!'
                   : 'Your completed goals will appear here. Keep pushing towards your dreams!',
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: AppColors.textSecondary,
-                  ),
+                color: AppColors.textSecondary,
+              ),
               textAlign: TextAlign.center,
             ),
             if (type == 'active') ...[
@@ -379,8 +372,7 @@ class _GoalsScreenState extends State<GoalsScreen>
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.transparent,
                     shadowColor: Colors.transparent,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 32, vertical: 16),
+                    padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
                     ),
@@ -405,7 +397,7 @@ class _GoalsScreenState extends State<GoalsScreen>
   Widget _buildModernGoalCard(SavingsGoal goal) {
     final progress = goal.progressPercentage / 100.0;
     final isCompleted = goal.isCompleted;
-
+    
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -418,14 +410,14 @@ class _GoalsScreenState extends State<GoalsScreen>
               : [Colors.white, Colors.white.withOpacity(0.9)],
         ),
         border: Border.all(
-          color: isCompleted
+          color: isCompleted 
               ? AppColors.secondary.withOpacity(0.3)
               : AppColors.border.withOpacity(0.2),
           width: 1,
         ),
         boxShadow: [
           BoxShadow(
-            color: isCompleted
+            color: isCompleted 
                 ? AppColors.secondary.withOpacity(0.1)
                 : Colors.black.withOpacity(0.05),
             blurRadius: 15,
@@ -441,7 +433,7 @@ class _GoalsScreenState extends State<GoalsScreen>
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: isCompleted
+                  color: isCompleted 
                       ? AppColors.secondary.withOpacity(0.1)
                       : AppColors.primary.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(12),
@@ -460,17 +452,17 @@ class _GoalsScreenState extends State<GoalsScreen>
                     Text(
                       goal.name,
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                            fontWeight: FontWeight.bold,
-                            color: AppColors.textPrimary,
-                          ),
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.textPrimary,
+                      ),
                     ),
                     if (goal.description != null) ...[
                       const SizedBox(height: 4),
                       Text(
                         goal.description!,
                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              color: AppColors.textSecondary,
-                            ),
+                          color: AppColors.textSecondary,
+                        ),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -480,8 +472,7 @@ class _GoalsScreenState extends State<GoalsScreen>
               ),
               if (isCompleted)
                 Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   decoration: BoxDecoration(
                     color: AppColors.secondary,
                     borderRadius: BorderRadius.circular(20),
@@ -498,7 +489,7 @@ class _GoalsScreenState extends State<GoalsScreen>
             ],
           ),
           const SizedBox(height: 20),
-
+          
           // Progress section
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -506,21 +497,21 @@ class _GoalsScreenState extends State<GoalsScreen>
               Text(
                 '\$${goal.currentAmount.toStringAsFixed(0)}',
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.primary,
-                    ),
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.primary,
+                ),
               ),
               Text(
                 'of \$${goal.targetAmount.toStringAsFixed(0)}',
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                      color: AppColors.textSecondary,
-                      fontWeight: FontWeight.w500,
-                    ),
+                  color: AppColors.textSecondary,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ],
           ),
           const SizedBox(height: 12),
-
+          
           // Progress bar
           Container(
             height: 8,
@@ -534,11 +525,8 @@ class _GoalsScreenState extends State<GoalsScreen>
               child: Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: isCompleted
-                        ? [
-                            AppColors.secondary,
-                            AppColors.secondary.withOpacity(0.8)
-                          ]
+                    colors: isCompleted 
+                        ? [AppColors.secondary, AppColors.secondary.withOpacity(0.8)]
                         : [AppColors.primary, AppColors.primaryLight],
                   ),
                   borderRadius: BorderRadius.circular(4),
@@ -547,7 +535,7 @@ class _GoalsScreenState extends State<GoalsScreen>
             ),
           ),
           const SizedBox(height: 12),
-
+          
           // Progress percentage and target date
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -555,16 +543,15 @@ class _GoalsScreenState extends State<GoalsScreen>
               Text(
                 '${(progress * 100).toInt()}% complete',
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color:
-                          isCompleted ? AppColors.secondary : AppColors.primary,
-                      fontWeight: FontWeight.w600,
-                    ),
+                  color: isCompleted ? AppColors.secondary : AppColors.primary,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
               Text(
                 'Due: ${DateFormat('MMM dd, yyyy').format(goal.deadline)}',
                 style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      color: AppColors.textSecondary,
-                    ),
+                  color: AppColors.textSecondary,
+                ),
               ),
             ],
           ),
@@ -622,16 +609,16 @@ class _GoalsScreenState extends State<GoalsScreen>
           Text(
             goal.name,
             style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
+              fontWeight: FontWeight.bold,
+            ),
           ),
           if (goal.description != null) ...[
             const SizedBox(height: AppSizes.sm),
             Text(
               goal.description!,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: AppColors.textSecondary,
-                  ),
+                color: AppColors.textSecondary,
+              ),
             ),
           ],
           const SizedBox(height: AppSizes.lg),
@@ -643,15 +630,15 @@ class _GoalsScreenState extends State<GoalsScreen>
               Text(
                 'Progress',
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                      fontWeight: FontWeight.w600,
-                    ),
+                  fontWeight: FontWeight.w600,
+                ),
               ),
               Text(
                 '${(goal.progressPercentage * 100).toInt()}%',
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.primary,
-                    ),
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.primary,
+                ),
               ),
             ],
           ),
@@ -756,17 +743,17 @@ class _GoalsScreenState extends State<GoalsScreen>
           Text(
             label,
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  color: color,
-                  fontWeight: FontWeight.w500,
-                ),
+              color: color,
+              fontWeight: FontWeight.w500,
+            ),
           ),
           const SizedBox(height: AppSizes.xs),
           Text(
             value,
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                  color: color,
-                  fontWeight: FontWeight.w600,
-                ),
+              color: color,
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ],
       ),
@@ -794,9 +781,9 @@ class _GoalsScreenState extends State<GoalsScreen>
           Text(
             'Loading your goals... 🎯',
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.textPrimary,
-                ),
+              fontWeight: FontWeight.bold,
+              color: AppColors.textPrimary,
+            ),
           ),
         ],
       ),
@@ -849,16 +836,16 @@ class _GoalsScreenState extends State<GoalsScreen>
             Text(
               'Oops! Something went wrong 😅',
               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+                fontWeight: FontWeight.bold,
+              ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 12),
             Text(
               goalsProvider.error!,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: AppColors.textSecondary,
-                  ),
+                color: AppColors.textSecondary,
+              ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 24),
@@ -867,8 +854,7 @@ class _GoalsScreenState extends State<GoalsScreen>
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.primary,
                 foregroundColor: Colors.white,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16),
                 ),

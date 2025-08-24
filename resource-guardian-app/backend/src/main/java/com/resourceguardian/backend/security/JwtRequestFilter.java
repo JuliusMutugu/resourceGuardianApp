@@ -1,4 +1,4 @@
-package main.java.com.resourceguardian.backend.security;
+package com.resourceguardian.backend.security;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.FilterChain;

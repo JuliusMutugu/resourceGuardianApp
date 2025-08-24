@@ -227,233 +227,286 @@ class _MainAppScreenState extends State<MainAppScreen> {
   Widget _buildDrawer() {
     return Drawer(
       backgroundColor: Theme.of(context).brightness == Brightness.dark
-          ? const Color(0xFF1E293B)
-          : Colors.white,
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: [
-          Consumer<ThemeProvider>(
-            builder: (context, themeProvider, _) {
-              return Container(
-                height: 200,
-                decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    colors: [Color(0xFF6366F1), Color(0xFF06B6D4)],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
-                  borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(30),
-                    bottomRight: Radius.circular(30),
-                  ),
+          ? const Color(0xFF0F172A)
+          : const Color(0xFFF8FAFC),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(30),
+          bottomRight: Radius.circular(30),
+        ),
+      ),
+      child: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: Theme.of(context).brightness == Brightness.dark
+                ? [
+                    const Color(0xFF0F172A),
+                    const Color(0xFF1E293B),
+                  ]
+                : [
+                    const Color(0xFFF8FAFC),
+                    const Color(0xFFE2E8F0),
+                  ],
+          ),
+        ),
+        child: Column(
+          children: [
+            // Modern Header
+            Container(
+              height: 240,
+              decoration: BoxDecoration(
+                gradient: const LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    Color(0xFF7C3AED),
+                    Color(0xFF06B6D4),
+                    Color(0xFF10B981),
+                  ],
                 ),
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(40),
+                  bottomRight: Radius.circular(40),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color(0xFF7C3AED).withOpacity(0.3),
+                    blurRadius: 25,
+                    offset: const Offset(0, 15),
+                  ),
+                ],
+              ),
+              child: SafeArea(
                 child: Padding(
-                  padding: const EdgeInsets.all(24),
+                  padding: const EdgeInsets.all(32),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
+                      // Avatar Container
                       Container(
-                        width: 70,
-                        height: 70,
+                        width: 80,
+                        height: 80,
                         decoration: BoxDecoration(
                           color: Colors.white.withOpacity(0.2),
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: BorderRadius.circular(25),
                           border: Border.all(
-                            color: Colors.white.withOpacity(0.3),
-                            width: 2,
+                            color: Colors.white.withOpacity(0.4),
+                            width: 3,
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.1),
+                              blurRadius: 15,
+                              offset: const Offset(0, 8),
+                            ),
+                          ],
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(22),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  Colors.white.withOpacity(0.3),
+                                  Colors.white.withOpacity(0.1),
+                                ],
+                              ),
+                            ),
+                            child: const Icon(
+                              Icons.account_balance_wallet_rounded,
+                              size: 40,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
-                        child: const Icon(
-                          Icons.account_balance_wallet_rounded,
-                          size: 35,
-                          color: Colors.white,
-                        ),
                       ),
-                      const SizedBox(height: 16),
+                      const SizedBox(height: 20),
+                      // App Title
                       const Text(
                         'Resource Guardian',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 22,
+                          fontSize: 26,
                           fontWeight: FontWeight.bold,
+                          letterSpacing: 0.5,
                         ),
                       ),
-                      Text(
-                        'Smart Financial Management',
-                        style: TextStyle(
-                          color: Colors.white.withOpacity(0.9),
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                        ),
+                      const SizedBox(height: 4),
+                      // Subtitle with emoji
+                      Row(
+                        children: [
+                          Text(
+                            '💎 Smart Financial Management',
+                            style: TextStyle(
+                              color: Colors.white.withOpacity(0.9),
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
                 ),
-              );
-            },
-          ),
-          const SizedBox(height: 20),
-          _buildModernDrawerItem(
-            icon: Icons.dashboard_rounded,
-            title: 'Dashboard',
-            index: 0,
-          ),
-          _buildModernDrawerItem(
-            icon: Icons.account_balance_wallet_rounded,
-            title: 'Transactions',
-            index: 1,
-          ),
-          _buildModernDrawerItem(
-            icon: Icons.savings_rounded,
-            title: 'Savings Goals',
-            index: 2,
-          ),
-          _buildModernDrawerItem(
-            icon: Icons.health_and_safety_rounded,
-            title: 'Digital Wellness',
-            index: 3,
-          ),
-          _buildModernDrawerItem(
-            icon: Icons.person_rounded,
-            title: 'Profile',
-            index: 4,
-          ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            child: Divider(),
-          ),
-          _buildModernNavigationItem(
-            icon: Icons.analytics_rounded,
-            title: 'Analytics',
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const AnalyticsScreen(),
-                ),
-              );
-            },
-          ),
-          _buildModernNavigationItem(
-            icon: Icons.settings_rounded,
-            title: 'Settings',
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const SettingsScreen(),
-                ),
-              );
-            },
-          ),
-          Consumer<ThemeProvider>(
-            builder: (context, themeProvider, _) {
-              return _buildModernNavigationItem(
-                icon: themeProvider.isDarkMode 
-                  ? Icons.light_mode_rounded
-                  : Icons.dark_mode_rounded,
-                title: themeProvider.isDarkMode 
-                  ? 'Light Mode' 
-                  : 'Dark Mode',
-                onTap: () {
-                  themeProvider.toggleTheme();
-                },
-              );
-            },
-          ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            child: Divider(),
-          ),
-          _buildModernNavigationItem(
-            icon: Icons.help_outline_rounded,
-            title: 'Help & Support',
-            onTap: () {
-              Navigator.pop(context);
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: const Text('Help & Support coming soon!'),
-                  behavior: SnackBarBehavior.floating,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
+              ),
+            ),
+            
+            // Navigation Items
+            Expanded(
+              child: ListView(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                children: [
+                  // Main Navigation
+                  _buildModernDrawerItem(
+                    icon: Icons.dashboard_rounded,
+                    title: 'Dashboard',
+                    emoji: '🏠',
+                    index: 0,
                   ),
-                ),
-              );
-            },
-          ),
-          _buildModernNavigationItem(
-            icon: Icons.info_outline_rounded,
-            title: 'About',
-            onTap: () {
-              Navigator.pop(context);
-              _showAboutDialog();
-            },
-          ),
-          const SizedBox(height: 20),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildDrawerItem({
-    required IconData icon,
-    required String title,
-    required int index,
-  }) {
-    final isSelected = _currentIndex == index;
-    
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-      decoration: BoxDecoration(
-        color: isSelected 
-          ? const Color(0xFF6366F1).withOpacity(0.1)
-          : Colors.transparent,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: ListTile(
-        leading: Container(
-          padding: const EdgeInsets.all(8),
-          decoration: BoxDecoration(
-            color: isSelected 
-              ? const Color(0xFF6366F1).withOpacity(0.2)
-              : Colors.transparent,
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: Icon(
-            icon,
-            color: isSelected 
-              ? const Color(0xFF6366F1)
-              : Theme.of(context).brightness == Brightness.dark
-                ? Colors.white70
-                : Colors.black54,
-            size: 22,
-          ),
+                  _buildModernDrawerItem(
+                    icon: Icons.account_balance_wallet_rounded,
+                    title: 'Transactions',
+                    emoji: '💰',
+                    index: 1,
+                  ),
+                  _buildModernDrawerItem(
+                    icon: Icons.savings_rounded,
+                    title: 'Savings Goals',
+                    emoji: '🎯',
+                    index: 2,
+                  ),
+                  _buildModernDrawerItem(
+                    icon: Icons.health_and_safety_rounded,
+                    title: 'Digital Wellness',
+                    emoji: '📱',
+                    index: 3,
+                  ),
+                  _buildModernDrawerItem(
+                    icon: Icons.person_rounded,
+                    title: 'Profile',
+                    emoji: '👤',
+                    index: 4,
+                  ),
+                  
+                  // Section Divider
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 32, vertical: 20),
+                    height: 1,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          Colors.transparent,
+                          Theme.of(context).brightness == Brightness.dark
+                              ? Colors.white.withOpacity(0.1)
+                              : Colors.black.withOpacity(0.1),
+                          Colors.transparent,
+                        ],
+                      ),
+                    ),
+                  ),
+                  
+                  // Additional Features
+                  _buildModernNavigationItem(
+                    icon: Icons.analytics_rounded,
+                    title: 'Analytics',
+                    emoji: '📊',
+                    onTap: () {
+                      Navigator.pop(context);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const AnalyticsScreen(),
+                        ),
+                      );
+                    },
+                  ),
+                  _buildModernNavigationItem(
+                    icon: Icons.settings_rounded,
+                    title: 'Settings',
+                    emoji: '⚙️',
+                    onTap: () {
+                      Navigator.pop(context);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SettingsScreen(),
+                        ),
+                      );
+                    },
+                  ),
+                  
+                  // Theme Toggle
+                  Consumer<ThemeProvider>(
+                    builder: (context, themeProvider, _) {
+                      return _buildModernNavigationItem(
+                        icon: themeProvider.isDarkMode 
+                          ? Icons.light_mode_rounded
+                          : Icons.dark_mode_rounded,
+                        title: themeProvider.isDarkMode 
+                          ? 'Light Mode' 
+                          : 'Dark Mode',
+                        emoji: themeProvider.isDarkMode ? '☀️' : '🌙',
+                        onTap: () {
+                          themeProvider.toggleTheme();
+                        },
+                      );
+                    },
+                  ),
+                  
+                  // Bottom Section
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 32, vertical: 20),
+                    height: 1,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          Colors.transparent,
+                          Theme.of(context).brightness == Brightness.dark
+                              ? Colors.white.withOpacity(0.1)
+                              : Colors.black.withOpacity(0.1),
+                          Colors.transparent,
+                        ],
+                      ),
+                    ),
+                  ),
+                  
+                  _buildModernNavigationItem(
+                    icon: Icons.help_outline_rounded,
+                    title: 'Help & Support',
+                    emoji: '💬',
+                    onTap: () {
+                      Navigator.pop(context);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: const Text('Help & Support coming soon! 🚀'),
+                          backgroundColor: const Color(0xFF7C3AED),
+                          behavior: SnackBarBehavior.floating,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                  _buildModernNavigationItem(
+                    icon: Icons.info_outline_rounded,
+                    title: 'About',
+                    emoji: 'ℹ️',
+                    onTap: () {
+                      Navigator.pop(context);
+                      _showAboutDialog();
+                    },
+                  ),
+                  
+                  const SizedBox(height: 40),
+                ],
+              ),
+            ),
+          ],
         ),
-        title: Text(
-          title,
-          style: TextStyle(
-            color: isSelected 
-              ? const Color(0xFF6366F1)
-              : Theme.of(context).brightness == Brightness.dark
-                ? Colors.white
-                : Colors.black87,
-            fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
-            fontSize: 15,
-          ),
-        ),
-        selected: isSelected,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
-        onTap: () {
-          Navigator.pop(context);
-          setState(() {
-            _currentIndex = index;
-          });
-        },
       ),
     );
   }
@@ -461,59 +514,140 @@ class _MainAppScreenState extends State<MainAppScreen> {
   Widget _buildModernDrawerItem({
     required IconData icon,
     required String title,
+    required String emoji,
     required int index,
   }) {
     final isSelected = _currentIndex == index;
     
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-      decoration: BoxDecoration(
-        color: isSelected 
-          ? const Color(0xFF6366F1).withOpacity(0.1)
-          : Colors.transparent,
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: ListTile(
-        leading: Container(
-          padding: const EdgeInsets.all(8),
-          decoration: BoxDecoration(
-            color: isSelected 
-              ? const Color(0xFF6366F1).withOpacity(0.2)
-              : Colors.transparent,
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: Icon(
-            icon,
-            color: isSelected 
-              ? const Color(0xFF6366F1)
-              : Theme.of(context).brightness == Brightness.dark
-                ? Colors.white70
-                : Colors.black54,
-            size: 22,
+      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 6),
+      child: Material(
+        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(20),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(20),
+          onTap: () {
+            Navigator.pop(context);
+            setState(() {
+              _currentIndex = index;
+            });
+          },
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+            decoration: BoxDecoration(
+              gradient: isSelected 
+                ? LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: [
+                      const Color(0xFF7C3AED).withOpacity(0.15),
+                      const Color(0xFF06B6D4).withOpacity(0.15),
+                    ],
+                  )
+                : null,
+              borderRadius: BorderRadius.circular(20),
+              border: isSelected
+                ? Border.all(
+                    color: const Color(0xFF7C3AED).withOpacity(0.3),
+                    width: 1,
+                  )
+                : null,
+              boxShadow: isSelected
+                ? [
+                    BoxShadow(
+                      color: const Color(0xFF7C3AED).withOpacity(0.1),
+                      blurRadius: 10,
+                      offset: const Offset(0, 4),
+                    ),
+                  ]
+                : null,
+            ),
+            child: Row(
+              children: [
+                // Icon Container
+                Container(
+                  width: 45,
+                  height: 45,
+                  decoration: BoxDecoration(
+                    gradient: isSelected 
+                      ? const LinearGradient(
+                          colors: [Color(0xFF7C3AED), Color(0xFF06B6D4)],
+                        )
+                      : LinearGradient(
+                          colors: [
+                            Theme.of(context).brightness == Brightness.dark
+                                ? Colors.white.withOpacity(0.1)
+                                : Colors.black.withOpacity(0.05),
+                            Theme.of(context).brightness == Brightness.dark
+                                ? Colors.white.withOpacity(0.05)
+                                : Colors.black.withOpacity(0.02),
+                          ],
+                        ),
+                    borderRadius: BorderRadius.circular(15),
+                    boxShadow: isSelected
+                      ? [
+                          BoxShadow(
+                            color: const Color(0xFF7C3AED).withOpacity(0.3),
+                            blurRadius: 8,
+                            offset: const Offset(0, 4),
+                          ),
+                        ]
+                      : null,
+                  ),
+                  child: Icon(
+                    icon,
+                    color: isSelected 
+                      ? Colors.white
+                      : Theme.of(context).brightness == Brightness.dark
+                        ? Colors.white70
+                        : const Color(0xFF64748B),
+                    size: 22,
+                  ),
+                ),
+                const SizedBox(width: 16),
+                // Title and Emoji
+                Expanded(
+                  child: Row(
+                    children: [
+                      Text(
+                        emoji,
+                        style: const TextStyle(fontSize: 18),
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Text(
+                          title,
+                          style: TextStyle(
+                            color: isSelected 
+                              ? const Color(0xFF7C3AED)
+                              : Theme.of(context).brightness == Brightness.dark
+                                ? Colors.white
+                                : const Color(0xFF1E293B),
+                            fontWeight: isSelected ? FontWeight.w700 : FontWeight.w600,
+                            fontSize: 16,
+                            letterSpacing: 0.2,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                // Selection Indicator
+                if (isSelected)
+                  Container(
+                    width: 6,
+                    height: 30,
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                        colors: [Color(0xFF7C3AED), Color(0xFF06B6D4)],
+                      ),
+                      borderRadius: BorderRadius.circular(3),
+                    ),
+                  ),
+              ],
+            ),
           ),
         ),
-        title: Text(
-          title,
-          style: TextStyle(
-            color: isSelected 
-              ? const Color(0xFF6366F1)
-              : Theme.of(context).brightness == Brightness.dark
-                ? Colors.white
-                : Colors.black87,
-            fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
-            fontSize: 15,
-          ),
-        ),
-        selected: isSelected,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
-        onTap: () {
-          Navigator.pop(context);
-          setState(() {
-            _currentIndex = index;
-          });
-        },
       ),
     );
   }
@@ -521,39 +655,76 @@ class _MainAppScreenState extends State<MainAppScreen> {
   Widget _buildModernNavigationItem({
     required IconData icon,
     required String title,
+    required String emoji,
     required VoidCallback onTap,
   }) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-      child: ListTile(
-        leading: Container(
-          padding: const EdgeInsets.all(8),
-          decoration: BoxDecoration(
-            color: Colors.transparent,
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: Icon(
-            icon,
-            color: Theme.of(context).brightness == Brightness.dark
-                ? Colors.white70
-                : Colors.black54,
-            size: 22,
+      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 6),
+      child: Material(
+        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(20),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(20),
+          onTap: onTap,
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+            child: Row(
+              children: [
+                // Icon Container
+                Container(
+                  width: 45,
+                  height: 45,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white.withOpacity(0.1)
+                            : Colors.black.withOpacity(0.05),
+                        Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white.withOpacity(0.05)
+                            : Colors.black.withOpacity(0.02),
+                      ],
+                    ),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Icon(
+                    icon,
+                    color: Theme.of(context).brightness == Brightness.dark
+                      ? Colors.white70
+                      : const Color(0xFF64748B),
+                    size: 22,
+                  ),
+                ),
+                const SizedBox(width: 16),
+                // Title and Emoji
+                Expanded(
+                  child: Row(
+                    children: [
+                      Text(
+                        emoji,
+                        style: const TextStyle(fontSize: 18),
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Text(
+                          title,
+                          style: TextStyle(
+                            color: Theme.of(context).brightness == Brightness.dark
+                              ? Colors.white
+                              : const Color(0xFF1E293B),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                            letterSpacing: 0.2,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
-        title: Text(
-          title,
-          style: TextStyle(
-            color: Theme.of(context).brightness == Brightness.dark
-                ? Colors.white
-                : Colors.black87,
-            fontWeight: FontWeight.w500,
-            fontSize: 15,
-          ),
-        ),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
-        onTap: onTap,
       ),
     );
   }

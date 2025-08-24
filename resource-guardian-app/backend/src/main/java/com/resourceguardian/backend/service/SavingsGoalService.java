@@ -1,8 +1,8 @@
-package main.java.com.resourceguardian.backend.service;
+package com.resourceguardian.backend.service;
 
-import main.java.com.resourceguardian.backend.entity.SavingsGoal;
-import main.java.com.resourceguardian.backend.entity.User;
-import main.java.com.resourceguardian.backend.repository.SavingsGoalRepository;
+import com.resourceguardian.backend.entity.SavingsGoal;
+import com.resourceguardian.backend.entity.User;
+import com.resourceguardian.backend.repository.SavingsGoalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

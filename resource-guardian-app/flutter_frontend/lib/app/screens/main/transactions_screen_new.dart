@@ -15,12 +15,12 @@ class TransactionsScreen extends StatefulWidget {
   State<TransactionsScreen> createState() => _TransactionsScreenState();
 }
 
-class _TransactionsScreenState extends State<TransactionsScreen>
+class _TransactionsScreenState extends State<TransactionsScreen> 
     with TickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _fadeAnimation;
   late TabController _tabController;
-
+  
   @override
   void initState() {
     super.initState();
@@ -36,7 +36,7 @@ class _TransactionsScreenState extends State<TransactionsScreen>
       parent: _animationController,
       curve: Curves.easeInOut,
     ));
-
+    
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<TransactionProvider>().loadTransactions();
       _animationController.forward();
@@ -72,10 +72,10 @@ class _TransactionsScreenState extends State<TransactionsScreen>
               children: [
                 // Modern Header
                 _buildModernHeader(),
-
+                
                 // Tab Bar
                 _buildModernTabBar(),
-
+                
                 // Content
                 Expanded(
                   child: Consumer<TransactionProvider>(
@@ -91,13 +91,9 @@ class _TransactionsScreenState extends State<TransactionsScreen>
                       return TabBarView(
                         controller: _tabController,
                         children: [
-                          _buildTransactionsList(
-                              transactionProvider.transactions, 'all'),
-                          _buildTransactionsList(
-                              transactionProvider.incomeTransactions, 'income'),
-                          _buildTransactionsList(
-                              transactionProvider.expenseTransactions,
-                              'expense'),
+                          _buildTransactionsList(transactionProvider.transactions, 'all'),
+                          _buildTransactionsList(transactionProvider.incomeTransactions, 'income'),
+                          _buildTransactionsList(transactionProvider.expenseTransactions, 'expense'),
                         ],
                       );
                     },
@@ -309,9 +305,9 @@ class _TransactionsScreenState extends State<TransactionsScreen>
           Text(
             'Loading transactions... 📊',
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.textPrimary,
-                ),
+              fontWeight: FontWeight.bold,
+              color: AppColors.textPrimary,
+            ),
           ),
         ],
       ),
@@ -364,16 +360,16 @@ class _TransactionsScreenState extends State<TransactionsScreen>
             Text(
               'Oops! Something went wrong 😅',
               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+                fontWeight: FontWeight.bold,
+              ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 12),
             Text(
               provider.error!,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: AppColors.textSecondary,
-                  ),
+                color: AppColors.textSecondary,
+              ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 24),
@@ -382,8 +378,7 @@ class _TransactionsScreenState extends State<TransactionsScreen>
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.primary,
                 foregroundColor: Colors.white,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16),
                 ),
@@ -433,7 +428,7 @@ class _TransactionsScreenState extends State<TransactionsScreen>
   Widget _buildEmptyState(String type) {
     String title, subtitle;
     IconData icon;
-
+    
     switch (type) {
       case 'income':
         title = 'No Income Yet 💸';
@@ -447,8 +442,7 @@ class _TransactionsScreenState extends State<TransactionsScreen>
         break;
       default:
         title = 'Ready to Track? 📈';
-        subtitle =
-            'Add your first transaction to get started with financial tracking!';
+        subtitle = 'Add your first transaction to get started with financial tracking!';
         icon = Icons.receipt_long_rounded;
     }
 
@@ -497,16 +491,16 @@ class _TransactionsScreenState extends State<TransactionsScreen>
             Text(
               title,
               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+                fontWeight: FontWeight.bold,
+              ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 12),
             Text(
               subtitle,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: AppColors.textSecondary,
-                  ),
+                color: AppColors.textSecondary,
+              ),
               textAlign: TextAlign.center,
             ),
             if (type == 'all') ...[
@@ -523,8 +517,7 @@ class _TransactionsScreenState extends State<TransactionsScreen>
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.transparent,
                     shadowColor: Colors.transparent,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 32, vertical: 16),
+                    padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
                     ),
@@ -548,7 +541,7 @@ class _TransactionsScreenState extends State<TransactionsScreen>
 
   Widget _buildModernTransactionCard(Transaction transaction) {
     final isIncome = transaction.type == TransactionType.income;
-
+    
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -580,7 +573,7 @@ class _TransactionsScreenState extends State<TransactionsScreen>
               Container(
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: isIncome
+                  color: isIncome 
                       ? AppColors.secondary.withOpacity(0.1)
                       : AppColors.error.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(12),
@@ -599,16 +592,16 @@ class _TransactionsScreenState extends State<TransactionsScreen>
                     Text(
                       transaction.description,
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                            fontWeight: FontWeight.bold,
-                            color: AppColors.textPrimary,
-                          ),
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.textPrimary,
+                      ),
                     ),
                     const SizedBox(height: 4),
                     Text(
                       transaction.category,
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            color: AppColors.textSecondary,
-                          ),
+                        color: AppColors.textSecondary,
+                      ),
                     ),
                   ],
                 ),
@@ -619,17 +612,16 @@ class _TransactionsScreenState extends State<TransactionsScreen>
                   Text(
                     '${isIncome ? '+' : '-'}\$${transaction.amount.toStringAsFixed(2)}',
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color:
-                              isIncome ? AppColors.secondary : AppColors.error,
-                        ),
+                      fontWeight: FontWeight.bold,
+                      color: isIncome ? AppColors.secondary : AppColors.error,
+                    ),
                   ),
                   const SizedBox(height: 4),
                   Text(
                     DateFormat('MMM dd, yyyy').format(transaction.date),
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                          color: AppColors.textSecondary,
-                        ),
+                      color: AppColors.textSecondary,
+                    ),
                   ),
                 ],
               ),

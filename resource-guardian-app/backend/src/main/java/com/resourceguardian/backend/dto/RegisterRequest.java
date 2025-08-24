@@ -1,4 +1,4 @@
-package main.java.com.resourceguardian.backend.dto;
+package com.resourceguardian.backend.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

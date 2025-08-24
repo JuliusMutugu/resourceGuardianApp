@@ -71,10 +71,10 @@ class _DigitalWellnessScreenState extends State<DigitalWellnessScreen>
               children: [
                 // Modern Header
                 _buildModernHeader(),
-
+                
                 // Tab Bar
                 _buildModernTabBar(),
-
+                
                 // Content
                 Expanded(
                   child: Consumer<DigitalWellnessProvider>(
@@ -292,9 +292,9 @@ class _DigitalWellnessScreenState extends State<DigitalWellnessScreen>
           Text(
             'Analyzing digital wellness... 📊',
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.textPrimary,
-                ),
+              fontWeight: FontWeight.bold,
+              color: AppColors.textPrimary,
+            ),
           ),
         ],
       ),
@@ -347,16 +347,16 @@ class _DigitalWellnessScreenState extends State<DigitalWellnessScreen>
             Text(
               'Unable to load wellness data 😔',
               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+                fontWeight: FontWeight.bold,
+              ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 12),
             Text(
               provider.error!,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: AppColors.textSecondary,
-                  ),
+                color: AppColors.textSecondary,
+              ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 24),
@@ -365,8 +365,7 @@ class _DigitalWellnessScreenState extends State<DigitalWellnessScreen>
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.primary,
                 foregroundColor: Colors.white,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16),
                 ),
@@ -396,7 +395,7 @@ class _DigitalWellnessScreenState extends State<DigitalWellnessScreen>
 
   Widget _buildAppsTab(DigitalWellnessProvider provider) {
     final apps = provider.appUsageList;
-
+    
     if (apps.isEmpty) {
       return _buildEmptyState('apps');
     }
@@ -416,7 +415,7 @@ class _DigitalWellnessScreenState extends State<DigitalWellnessScreen>
 
   Widget _buildLimitsTab(DigitalWellnessProvider provider) {
     final limits = provider.appLimits;
-
+    
     if (limits.isEmpty) {
       return _buildEmptyState('limits');
     }
@@ -436,12 +435,9 @@ class _DigitalWellnessScreenState extends State<DigitalWellnessScreen>
 
   Widget _buildWellnessScore(DigitalWellnessProvider provider) {
     final score = provider.wellnessScore;
-    final color = score >= 80
-        ? AppColors.secondary
-        : score >= 60
-            ? AppColors.accent
-            : AppColors.error;
-
+    final color = score >= 80 ? AppColors.secondary : 
+                 score >= 60 ? AppColors.accent : AppColors.error;
+    
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
@@ -490,22 +486,21 @@ class _DigitalWellnessScreenState extends State<DigitalWellnessScreen>
                     Text(
                       'Wellness Score',
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                            fontWeight: FontWeight.bold,
-                            color: AppColors.textPrimary,
-                          ),
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.textPrimary,
+                      ),
                     ),
                     Text(
                       _getScoreMessage(score),
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            color: AppColors.textSecondary,
-                          ),
+                        color: AppColors.textSecondary,
+                      ),
                     ),
                   ],
                 ),
               ),
               Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 decoration: BoxDecoration(
                   color: color,
                   borderRadius: BorderRadius.circular(20),
@@ -536,7 +531,7 @@ class _DigitalWellnessScreenState extends State<DigitalWellnessScreen>
 
   Widget _buildDailyUsageCard(DigitalWellnessProvider provider) {
     final usage = provider.todayUsage;
-
+    
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -586,17 +581,16 @@ class _DigitalWellnessScreenState extends State<DigitalWellnessScreen>
                     Text(
                       'Today\'s Usage',
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                            fontWeight: FontWeight.bold,
-                            color: AppColors.textPrimary,
-                          ),
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.textPrimary,
+                      ),
                     ),
                     Text(
                       _formatDuration(usage?.totalScreenTime ?? Duration.zero),
-                      style:
-                          Theme.of(context).textTheme.headlineSmall?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.primary,
-                              ),
+                      style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.primary,
+                      ),
                     ),
                   ],
                 ),
@@ -630,8 +624,7 @@ class _DigitalWellnessScreenState extends State<DigitalWellnessScreen>
     );
   }
 
-  Widget _buildUsageMetric(
-      String label, String value, IconData icon, Color color) {
+  Widget _buildUsageMetric(String label, String value, IconData icon, Color color) {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -645,15 +638,15 @@ class _DigitalWellnessScreenState extends State<DigitalWellnessScreen>
           Text(
             value,
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: color,
-                ),
+              fontWeight: FontWeight.bold,
+              color: color,
+            ),
           ),
           Text(
             label,
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  color: AppColors.textSecondary,
-                ),
+              color: AppColors.textSecondary,
+            ),
           ),
         ],
       ),
@@ -662,7 +655,7 @@ class _DigitalWellnessScreenState extends State<DigitalWellnessScreen>
 
   Widget _buildTopAppsCard(DigitalWellnessProvider provider) {
     final topApps = provider.topApps.take(5).toList();
-
+    
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -708,77 +701,68 @@ class _DigitalWellnessScreenState extends State<DigitalWellnessScreen>
               Text(
                 'Top Apps Today',
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.textPrimary,
-                    ),
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.textPrimary,
+                ),
               ),
             ],
           ),
           const SizedBox(height: 16),
-          ...topApps
-              .map((app) => Padding(
-                    padding: const EdgeInsets.only(bottom: 12),
-                    child: Row(
-                      children: [
-                        Container(
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            color: AppColors.primary.withOpacity(0.1),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Icon(
-                            Icons.apps_rounded,
-                            color: AppColors.primary,
-                            size: 20,
-                          ),
+          ...topApps.map((app) => Padding(
+            padding: const EdgeInsets.only(bottom: 12),
+            child: Row(
+              children: [
+                Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: AppColors.primary.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Icon(
+                    Icons.apps_rounded,
+                    color: AppColors.primary,
+                    size: 20,
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        app.appName,
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          fontWeight: FontWeight.w600,
                         ),
-                        const SizedBox(width: 12),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                app.appName,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyMedium
-                                    ?.copyWith(
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                              ),
-                              Text(
-                                _formatDuration(app.usageTime),
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodySmall
-                                    ?.copyWith(
-                                      color: AppColors.textSecondary,
-                                    ),
-                              ),
-                            ],
-                          ),
+                      ),
+                      Text(
+                        _formatDuration(app.usageTime),
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                          color: AppColors.textSecondary,
                         ),
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 8, vertical: 4),
-                          decoration: BoxDecoration(
-                            color: AppColors.primary.withOpacity(0.1),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Text(
-                            '${app.openCount}x',
-                            style: TextStyle(
-                              color: AppColors.primary,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 12,
-                            ),
-                          ),
-                        ),
-                      ],
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: AppColors.primary.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Text(
+                    '${app.openCount}x',
+                    style: TextStyle(
+                      color: AppColors.primary,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 12,
                     ),
-                  ))
-              .toList(),
+                  ),
+                ),
+              ],
+            ),
+          )).toList(),
         ],
       ),
     );
@@ -832,15 +816,15 @@ class _DigitalWellnessScreenState extends State<DigitalWellnessScreen>
                 Text(
                   app.appName,
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 const SizedBox(height: 4),
                 Text(
                   _formatDuration(app.usageTime),
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: AppColors.textSecondary,
-                      ),
+                    color: AppColors.textSecondary,
+                  ),
                 ),
               ],
             ),
@@ -849,8 +833,7 @@ class _DigitalWellnessScreenState extends State<DigitalWellnessScreen>
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                 decoration: BoxDecoration(
                   color: AppColors.primary.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(12),
@@ -874,7 +857,7 @@ class _DigitalWellnessScreenState extends State<DigitalWellnessScreen>
   Widget _buildAppLimitCard(AppLimit limit) {
     final progress = limit.usedTime.inMinutes / limit.limitTime.inMinutes;
     final isExceeded = progress >= 1.0;
-
+    
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -888,14 +871,14 @@ class _DigitalWellnessScreenState extends State<DigitalWellnessScreen>
           ],
         ),
         border: Border.all(
-          color: isExceeded
+          color: isExceeded 
               ? AppColors.error.withOpacity(0.3)
               : AppColors.border.withOpacity(0.2),
           width: 1,
         ),
         boxShadow: [
           BoxShadow(
-            color: isExceeded
+            color: isExceeded 
                 ? AppColors.error.withOpacity(0.1)
                 : Colors.black.withOpacity(0.05),
             blurRadius: 15,
@@ -911,7 +894,7 @@ class _DigitalWellnessScreenState extends State<DigitalWellnessScreen>
                 width: 50,
                 height: 50,
                 decoration: BoxDecoration(
-                  color: isExceeded
+                  color: isExceeded 
                       ? AppColors.error.withOpacity(0.1)
                       : AppColors.primary.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(12),
@@ -930,23 +913,22 @@ class _DigitalWellnessScreenState extends State<DigitalWellnessScreen>
                     Text(
                       limit.appName,
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                            fontWeight: FontWeight.bold,
-                          ),
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     const SizedBox(height: 4),
                     Text(
                       '${_formatDuration(limit.usedTime)} / ${_formatDuration(limit.limitTime)}',
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            color: AppColors.textSecondary,
-                          ),
+                        color: AppColors.textSecondary,
+                      ),
                     ),
                   ],
                 ),
               ),
               if (isExceeded)
                 Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   decoration: BoxDecoration(
                     color: AppColors.error,
                     borderRadius: BorderRadius.circular(12),
@@ -980,7 +962,7 @@ class _DigitalWellnessScreenState extends State<DigitalWellnessScreen>
   Widget _buildEmptyState(String type) {
     String title, subtitle;
     IconData icon;
-
+    
     switch (type) {
       case 'apps':
         title = 'No App Data Yet 📱';
@@ -1043,16 +1025,16 @@ class _DigitalWellnessScreenState extends State<DigitalWellnessScreen>
             Text(
               title,
               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+                fontWeight: FontWeight.bold,
+              ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 12),
             Text(
               subtitle,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: AppColors.textSecondary,
-                  ),
+                color: AppColors.textSecondary,
+              ),
               textAlign: TextAlign.center,
             ),
             if (type == 'limits') ...[
@@ -1069,8 +1051,7 @@ class _DigitalWellnessScreenState extends State<DigitalWellnessScreen>
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.transparent,
                     shadowColor: Colors.transparent,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 32, vertical: 16),
+                    padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
                     ),
@@ -1102,7 +1083,7 @@ class _DigitalWellnessScreenState extends State<DigitalWellnessScreen>
   String _formatDuration(Duration duration) {
     final hours = duration.inHours;
     final minutes = duration.inMinutes.remainder(60);
-
+    
     if (hours > 0) {
       return '${hours}h ${minutes}m';
     }

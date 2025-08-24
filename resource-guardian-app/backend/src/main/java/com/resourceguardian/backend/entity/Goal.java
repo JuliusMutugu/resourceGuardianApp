@@ -1,4 +1,4 @@
-package main.java.com.resourceguardian.backend.entity;
+package com.resourceguardian.backend.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;

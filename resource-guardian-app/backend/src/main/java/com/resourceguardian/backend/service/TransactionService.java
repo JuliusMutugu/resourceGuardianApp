@@ -1,8 +1,8 @@
-package main.java.com.resourceguardian.backend.service;
+package com.resourceguardian.backend.service;
 
-import main.java.com.resourceguardian.backend.entity.Transaction;
-import main.java.com.resourceguardian.backend.entity.User;
-import main.java.com.resourceguardian.backend.repository.TransactionRepository;
+import com.resourceguardian.backend.entity.Transaction;
+import com.resourceguardian.backend.entity.User;
+import com.resourceguardian.backend.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

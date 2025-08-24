@@ -1,11 +1,11 @@
-package main.java.com.resourceguardian.backend.controller;
+package com.resourceguardian.backend.controller;
 
-import main.java.com.resourceguardian.backend.dto.AuthRequest;
-import main.java.com.resourceguardian.backend.dto.AuthResponse;
-import main.java.com.resourceguardian.backend.dto.RegisterRequest;
-import main.java.com.resourceguardian.backend.entity.User;
-import main.java.com.resourceguardian.backend.service.UserService;
-import main.java.com.resourceguardian.backend.security.JwtTokenUtil;
+import com.resourceguardian.backend.dto.AuthRequest;
+import com.resourceguardian.backend.dto.AuthResponse;
+import com.resourceguardian.backend.dto.RegisterRequest;
+import com.resourceguardian.backend.entity.User;
+import com.resourceguardian.backend.service.UserService;
+import com.resourceguardian.backend.security.JwtTokenUtil;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

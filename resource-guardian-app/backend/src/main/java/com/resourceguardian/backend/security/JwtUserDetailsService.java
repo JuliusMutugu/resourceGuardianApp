@@ -1,7 +1,7 @@
-package main.java.com.resourceguardian.backend.security;
+package com.resourceguardian.backend.security;
 
-import main.java.com.resourceguardian.backend.entity.User;
-import main.java.com.resourceguardian.backend.repository.UserRepository;
+import com.resourceguardian.backend.entity.User;
+import com.resourceguardian.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

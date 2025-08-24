@@ -1,8 +1,8 @@
-package main.java.com.resourceguardian.backend.controller;
+package com.resourceguardian.backend.controller;
 
-import main.java.com.resourceguardian.backend.entity.Transaction;
-import main.java.com.resourceguardian.backend.security.JwtUserDetailsService;
-import main.java.com.resourceguardian.backend.service.TransactionService;
+import com.resourceguardian.backend.entity.Transaction;
+import com.resourceguardian.backend.security.JwtUserDetailsService;
+import com.resourceguardian.backend.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

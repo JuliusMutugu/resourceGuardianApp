@@ -86,8 +86,7 @@ class _AddGoalScreenState extends State<AddGoalScreen> {
               const SizedBox(height: 16),
               ListTile(
                 title: const Text('Target Date'),
-                subtitle: Text(
-                    _targetDate?.toString().split(' ')[0] ?? 'Select date'),
+                subtitle: Text(_targetDate?.toString().split(' ')[0] ?? 'Select date'),
                 trailing: const Icon(Icons.calendar_today),
                 onTap: _selectDate,
               ),
@@ -146,16 +145,12 @@ class _AddGoalScreenState extends State<AddGoalScreen> {
 
     try {
       final goalsProvider = Provider.of<GoalsProvider>(context, listen: false);
-
+      
       // Create a SavingsGoal object
       final newGoal = SavingsGoal(
-        id: DateTime.now()
-            .millisecondsSinceEpoch
-            .toString(), // Generate a simple ID
+        id: DateTime.now().millisecondsSinceEpoch.toString(), // Generate a simple ID
         name: _nameController.text,
-        description: _descriptionController.text.isEmpty
-            ? null
-            : _descriptionController.text,
+        description: _descriptionController.text.isEmpty ? null : _descriptionController.text,
         targetAmount: double.parse(_targetAmountController.text),
         currentAmount: 0.0,
         deadline: _targetDate!,
@@ -164,7 +159,7 @@ class _AddGoalScreenState extends State<AddGoalScreen> {
       );
 
       final success = await goalsProvider.addGoal(newGoal);
-
+      
       if (mounted) {
         if (success) {
           Navigator.of(context).pop();
@@ -173,8 +168,7 @@ class _AddGoalScreenState extends State<AddGoalScreen> {
           );
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-                content: Text('Failed to create goal. Please try again.')),
+            const SnackBar(content: Text('Failed to create goal. Please try again.')),
           );
         }
       }

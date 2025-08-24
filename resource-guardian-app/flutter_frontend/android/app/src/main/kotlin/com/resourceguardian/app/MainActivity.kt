@@ -1,4 +1,4 @@
-package com.resourceguardian.app
+dpackage com.resourceguardian.app
 
 import io.flutter.embedding.android.FlutterActivity
 

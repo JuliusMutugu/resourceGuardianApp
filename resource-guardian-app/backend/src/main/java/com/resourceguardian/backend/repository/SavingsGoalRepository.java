@@ -1,6 +1,6 @@
-package main.java.com.resourceguardian.backend.repository;
+package com.resourceguardian.backend.repository;
 
-import main.java.com.resourceguardian.backend.entity.SavingsGoal;
+import com.resourceguardian.backend.entity.SavingsGoal;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
